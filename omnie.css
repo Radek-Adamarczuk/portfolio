@@ -1,0 +1,12 @@
+.carousel{
+    width: 900px;
+}
+
+.carousel-item{
+    height: 550px !important;
+    height: 100%;
+}
+
+.carousel img{
+    filter: brightness(0.6);
+}

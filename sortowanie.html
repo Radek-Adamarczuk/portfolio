@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        let lista = [1, 7, 3, 56]
+        let lista_posortowana = []
+        let current;
+        for (let i = 0; i < lista.length; i++) {
+            current = lista[i]
+            for (let j = 1+i; j < lista.length; j++) {
+                if(lista[j] < current){
+                   let tmp = current 
+                   current = lista[j]
+                   lista[j] = tmp 
+                }
+            }
+            lista_posortowana.push(current)
+        }
+
+        console.log(lista_posortowana);
+
+    </script>
+
+</body>
+</html>

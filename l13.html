@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21 game</title>
+    <style>
+        .main {
+        }
+
+
+
+        .robot {
+            width: 200px;
+
+        }
+
+        .fs-7 {
+            font-size: .7rem;
+        }
+
+        .card_number {
+            position: relative;
+            height: 40px;
+        }
+
+        .card_number p {
+            position: absolute;
+            left: 65%;
+            font-size: 1.3rem;
+            bottom: 0;
+            animation: addpoints 2s;
+            opacity: 0;
+        }
+
+        @keyframes addpoints {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                bottom: 20px;
+            }
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <nav class=" navbar navbar-expand-sm bg-dark w-100 ">
+        <div class="container-fluid">
+            <a class="navbar-brand text-light" href="index.html">        <img style="width: 50px;" src="android-chrome-192x192.png" alt="">
+            </a>
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item text-light">
+                        <a class="nav-link text-light" href="omnie.html">O mnie</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="l7.html">Kontakt</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+        <div class="offcanvas-header">
+
+            <button onclick="close_offcanvas()" type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <h1 class="winner">WYGRAŁ GRACZ</h1>
+            <p class="show_player_points">Twoje punkty</p>
+            <p class="show_komputer_points">Twoje komputera</p>
+            <button onclick="play_again()" class="mt-5 px-3 btn btn-warning">PLAY AGAIN</button>
+
+        </div>
+    </div>
+
+
+
+    <div class="w-100 d-flex justify-content-center ">
+
+        <div class="main">
+
+            <div class="d-flex justify-content-between flex-wrap ">
+
+                <div class="d-flex justify-content-center flex-wrap mt-5 pb-5">
+                    <div class="w-100 d-flex justify-content-center flex-wrap">
+                        <h2 class=" w-100 text-center">COMPUTER</h2>
+                        <img class="robot " src="images/Floating Robot.jpg" alt="Robot">
+                    </div>
+                    <br>
+                    <div class="W-100">
+
+                        <a class="fs-7 text-black"
+                            href="https://pl.freepik.com/darmowe-wektory/plywajacy-robot_82654546.htm#fromView=search&page=1&position=1&uuid=e8ccea0b-88ea-422d-8991-87249a775152">Obraz
+                            autorstwa juicy_fish na Freepik</a>
+                        <p class="computer fs-3 fw-bold w-100 text-center">SCORE: 0</p>
+                        <div class="robot_card d-flex card_number">
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="d-flex justify-content-center flex-wrap">
+                    <div>
+
+                        <div class="d-flex justify-content-center flex-wrap mt-5">
+                            <div class="w-100 d-flex justify-content-center flex-wrap ">
+                                <h2 class=" w-100 text-center">PLAYER</h2>
+                                <img class="robot "
+                                    src="images/photo-delighted-mysterious-male-nerd-points-with-index-finger-looks-curiously-selects-someone-wears-spectacles-casual-jumper-isolated-pink-wall-hmm-interesting.jpg"
+                                    alt="Robot">
+                            </div>
+                            <br>
+                            <div class="W-100">
+
+                                <a class="fs-7 text-black"
+                                    href="https://pl.freepik.com/darmowe-wektory/plywajacy-robot_82654546.htm#fromView=search&page=1&position=1&uuid=e8ccea0b-88ea-422d-8991-87249a775152">Obraz
+                                    autorstwa juicy_fish na Freepik</a>
+                                <p class="player fs-3 fw-bold w-100 text-center ">SCORE: 0</p>
+                                <div class="player_card d-flex card_number">
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class=" px-5  d-flex justify-content-evenly">
+                            <button onclick="pass()" type="button" class="px-3 btn btn-primary">PASS</button>
+                            <button onclick="play_again()" class="btn btn-warning">PLAY AGAIN</button>
+                            <button onclick="gracz_points()" type="button" class="btn btn-success">KEEP PLAYING</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <script>
+
+            function show_offcanvas(text) {
+                document.querySelector(".offcanvas").classList.add("show")
+                document.querySelector(".winner").innerHTML = text
+                document.querySelector(".show_player_points").innerHTML = "twoje punkty: " + punkty_gracza
+                document.querySelector(".show_komputer_points").innerHTML = "punkty komputera: " + punkty_komputera
+
+            }
+            function close_offcanvas() {
+                document.querySelector(".offcanvas").classList.remove("show")
+
+            }
+            //[5, 6, 11, 3]
+            let lista_gracza = []
+            let lista_komputera = []
+
+            let punkty_gracza = 0
+            let punkty_komputera = 0
+
+
+            function random_score() {
+                let x = Math.floor((Math.random() * 10) + 2);
+                return x
+            }
+
+            function komputer_points() {
+                let punkty = random_score()
+                lista_komputera.push(punkty)
+
+                let badge = document.createElement("p")
+                badge.innerHTML = "+" + punkty
+
+                document.querySelector(".robot_card").appendChild(badge)
+
+
+                let suma = 0
+                lista_komputera.forEach(element => {
+                    suma += element
+                });
+                punkty_komputera = suma
+
+                document.querySelector(".computer").innerHTML = "score: " + suma
+
+                if (punkty_komputera > 21) {
+                    if (lista_komputera.includes(11)) {
+                        let idx = lista_komputera.indexOf(11)
+                        lista_komputera[idx] = 1
+                    }
+                    else {
+                        show_offcanvas("GRACZ WYGRAŁ")
+                    }
+                }
+
+            }
+
+            function gracz_points() {
+                let punkty = random_score()
+                lista_gracza.push(punkty)
+
+                let badge = document.createElement("p")
+                badge.innerHTML = "+" + punkty
+
+                document.querySelector(".player_card").appendChild(badge)
+                let suma = 0
+                lista_gracza.forEach(element => {
+                    suma += element
+                });
+                punkty_gracza = suma
+
+                document.querySelector(".player").innerHTML = "score: " + suma
+
+                if (punkty_gracza > 21) {
+                    if (lista_gracza.includes(11)) {
+                        let idx = lista_gracza.indexOf(11)
+                        lista_gracza[idx] = 1
+                    }
+                    else {
+                        show_offcanvas("GRACZ WYGRAŁ")
+                    }
+                }
+
+                if (punkty_komputera < 17) {
+                    komputer_points()
+                }
+            }
+            gracz_points()
+
+            function pass() {
+                while (punkty_komputera < 17) {
+                    komputer_points()
+                }
+                if (punkty_komputera > 21) {
+                    show_offcanvas("GRACZ WYGRAŁ")
+
+                }
+
+                else if (punkty_gracza > punkty_komputera) {
+                    show_offcanvas("GRACZ WYGRAŁ")
+                }
+                else if (punkty_gracza < punkty_komputera) {
+                    show_offcanvas("COMPUTER WYGRAŁ")
+                }
+                else {
+
+                    show_offcanvas("REMIS")
+                }
+            }
+            function play_again() {
+                window.location.reload();
+            }
+
+        </script>
+
+</body>
+
+</html>

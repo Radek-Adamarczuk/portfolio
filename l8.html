@@ -1,0 +1,342 @@
+
+
+
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head><link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .karta {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            background: rgb(0, 255, 235);
+            background: linear-gradient(50deg, rgba(0, 255, 235, 1) 0%, rgba(208, 95, 95, 1) 100%);
+            width: 200px;
+            border-radius: 20px;
+            border: black solid 3px;
+            margin: 20px;
+        }
+
+        .karta img {
+            width: 100%;
+        }
+    </style>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+      </head>
+      <body>
+    
+         
+        <nav class=" navbar navbar-expand-sm bg-dark ">
+            <div class="container-fluid">
+              <a class="navbar-brand text-light" href="index.html">        <img style="width: 50px;" src="android-chrome-192x192.png" alt="">
+              </a>
+              <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active text-light" href="index.html" aria-current="page" >Home</a>
+                  </li>
+                  <li class="nav-item text-light">
+                  <a class="nav-link text-light"  href="omnie.html">O mnie</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-light" href="l7.html">Kontakt</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+      </script>
+    
+    
+    
+    
+    <input class="input" placeholder="nazwa zwierzęcia" type="text">
+    <input class="min" type="number" placeholder="liczba od">
+    <input class="max" type="number" placeholder="do ilości zwierzat">
+    <button onclick="szukaj()">szukaj</button>
+    <div  class="pochodzenie">
+        <input onclick="kontynent(this)" value="Europa" type="checkbox" name="" id=""><label for="">Europa</label>
+        <input onclick="kontynent(this)" value="Azja" type="checkbox" name="" id=""><label for="">Azja</label>
+        <input onclick="kontynent(this)" value="afryka" type="checkbox" name="" id=""><label for="">Afryka</label>
+        <input onclick="kontynent(this)" value="Ameryka Północna" type="checkbox" name="" id=""><label for="">Ameryka
+            Północna</label>
+            <input onclick="kontynent(this)" value="Ameryka Południowa" type="checkbox" name="" id=""><label for="">Ameryka
+                Południowa</label>
+                <input onclick="kontynent(this)" value="Australia" type="checkbox" name="" id=""><label for="">Australia</label>
+                <input onclick="kontynent(this)" value="Antarktyda" type="checkbox" name="" id=""><label
+                for="">Antarktyda</label>
+                
+                <select>
+                    <option value="p_ros">Popularność rosnąco</option>
+                    <option value="p_mal">Popularność malejąco</option>
+                    <option value="liczba_ros">liczba zwierząt rosnąco</option>
+                    <option value="liczba_mal">liczba zwierząt malejąco</option>
+                </select>
+            </div>
+            <div class="main" style="display: flex; justify-content: center; flex-wrap: wrap; background-color: olivedrab;">
+                <!-- <div class="karta">
+                    <p>goryl</p>
+                    <img src="images/goryl.jpg" alt="goryl">
+                </div> -->
+                
+            </div>
+
+           
+    <script>
+
+
+
+    
+        let lista = [
+            {
+                "popularnosc": 5,
+                "name": "żyrafa",
+                "opis": "żyrafy mają długą szyję",
+                "liczba_zwierzat": 7,
+                "kontynent": "afryka"
+            },
+            {
+                "popularnosc": 4.6,
+                "name": "lew",
+                "opis": "lwy są groźne",
+                "liczba_zwierzat": 5,
+                "kontynent": "afryka"
+            },
+            {
+                "popularnosc": 4.5,
+                "name": "papugi",
+                "opis": "papugi są kolorowe",
+                "liczba_zwierzat": 21,
+                "kontynent": "Ameryka Południowa"
+            },
+            {
+                "popularnosc": 4,
+                "name": "goryl",
+                "opis": "goryle są silne",
+                "liczba_zwierzat": 3,
+                "kontynent": "afryka"
+            },
+            {
+                "popularnosc": 4,
+                "name": "hipopotam",
+                "opis": "hipopotamy lubią wode",
+                "liczba_zwierzat": 3,
+                "kontynent": "afryka"
+            },
+            {
+                "popularnosc": 3.5,
+                "name": "opos",
+                "opis": "występowały w \"epoce lodowcowej\"",
+                "liczba_zwierzat": 98,
+                "kontynent": "Ameryka Północna"
+            },
+            {
+                "popularnosc": 3,
+                "name": "zebra",
+                "opis": "zebry są czarno-białe",
+                "liczba_zwierzat": 101,
+                "kontynent": "afryka"
+            },
+            {
+                "popularnosc": 3,
+                "name": "pingwiny",
+                "opis": "Ślizgają się na brzuchu",
+                "liczba_zwierzat": 74,
+                "kontynent": "Antarktyda"
+            },
+            {
+                "popularnosc": 2,
+                "name": "szczury",
+                "opis": "szczury są małe",
+                "liczba_zwierzat": 7484,
+                "kontynent": "Europa"
+            },
+            {
+                "popularnosc": 2,
+                "name": "szerszenie",
+                "opis": "szerszenie są groźne",
+                "liczba_zwierzat": 857,
+                "kontynent": "Azja"
+            },
+            {
+                "popularnosc": 1,
+                "name": "pająki",
+                "opis": "pająki mają osiem nóg",
+                "liczba_zwierzat": 44,
+                "kontynent": "Australia"
+            }
+        ]
+
+        let lista_kontynetow = []
+        function kontynent(input) {
+            if (lista_kontynetow.includes(input.value)) {
+                lista_kontynetow.splice(lista_kontynetow.indexOf(input.value), 1)
+            }
+            else {
+                lista_kontynetow.push(input.value)
+            }
+
+        }
+        let regex
+        let min = 0
+        let max = 10167264326
+
+        function szukaj() {
+
+            let wartosc = document.querySelector('.input').value
+            regex = new RegExp(wartosc.toLowerCase())
+            let new_min = document.querySelector(".min").value
+            
+            if (new_min) {
+                min = Number(new_min)
+            }
+            else {
+                min = 0
+            }
+
+            let new_max = document.querySelector(".max").value
+            if (new_max) {
+                max = Number(new_max)
+            }
+            else {
+                max = 10167264326
+            }
+            generate()
+        }
+        function wybory() {
+            window.location.reload()
+            generate()
+
+        }
+
+
+
+        function generate() {
+
+            lista = sortuj()
+            document.querySelector(".main").innerHTML = ""
+
+            lista.forEach(element => {
+                let lista_pomoc
+                if (lista_kontynetow.length == 0) {
+                    lista_pomoc = ["Europa", 'Azja', "Ameryka Południowa", "Ameryka Północna", "Antarktyda", "Australia", "afryka"]
+                }
+                else {
+                    lista_pomoc = lista_kontynetow
+                }
+                if (!(element.name.match(regex))) {
+                    return
+                }
+                if (element.liczba_zwierzat < min || element.liczba_zwierzat > max) {
+                    return
+                }
+                if (!(lista_pomoc.includes(element.kontynent))) {
+                    return
+                }
+                document.querySelector(".main").innerHTML +=
+                    `
+    <div class="karta" data-aos="fade-up">
+    <h3>${element.name}</h3>
+    <img src="images/${element.name}.jpg" alt="">   
+    <p>${element.opis}</p>
+    <p> liczba zwierząt: ${element.liczba_zwierzat}</p>
+            <p> popularność: ${element.popularnosc}</p>
+            </div>
+            `
+            });
+        }
+        generate()
+
+        function sortuj() {
+            let lista_s = []
+            let select = document.querySelector("select").value
+            if (select == "p_ros") {
+                let current;
+                for (let i = 0; i < lista.length; i++) {
+                    current = lista[i]
+                    for (let j = i; j < lista.length; j++) {
+
+                        if (lista[j].popularnosc < current.popularnosc) {
+                            let tmp = current
+                            current = lista[j]
+                            lista[j] = tmp
+                        }
+                    }
+                    lista_s.push(current)
+                }
+            }
+            if (select == "p_mal") {
+                let current;
+                for (let i = 0; i < lista.length; i++) {
+                    current = lista[i]
+                    for (let j = i; j < lista.length; j++) {
+
+                        if (lista[j].popularnosc > current.popularnosc) {
+                            let tmp = current
+                            current = lista[j]
+                            lista[j] = tmp
+                        }
+                    }
+                    lista_s.push(current)
+                }
+
+            }
+            if (select == "liczba_mal") {
+
+                let current;
+                for (let i = 0; i < lista.length; i++) {
+                    current = lista[i]
+                    for (let j = i; j < lista.length; j++) {
+
+                        if (lista[j].liczba_zwierzat > current.liczba_zwierzat) {
+                            let tmp = current
+                            current = lista[j]
+                            lista[j] = tmp
+                        }
+                    }
+                    lista_s.push(current)
+                }
+
+            }
+            if (select == "liczba_ros") {
+
+                let current;
+                for (let i = 0; i < lista.length; i++) {
+                    current = lista[i]
+                    for (let j = i; j < lista.length; j++) {
+
+                        if (lista[j].liczba_zwierzat < current.liczba_zwierzat) {
+                            let tmp = current
+                            current = lista[j]
+                            lista[j] = tmp
+                        }
+                    }
+                    lista_s.push(current)
+                }
+
+            }
+            return lista_s;
+        }
+
+
+        sortuj()
+
+            </script>
+</body>
+
+</html>

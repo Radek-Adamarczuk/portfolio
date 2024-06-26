@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head><link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+    <link rel="stylesheet" href="l7.css">
+    <title>Contact Form</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+ //Ladowanie skryptu do emaili
+        (function () {
+            https:dashboard.emailjs.com/admin/account
+            emailjs.init({
+                publicKey: "ViXu3E_PYL_gXzK6Z",
+            });
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function () {
+            
+// Kiedy przycisk send kilknieto to:
+            document.getElementById('contact-form').addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                let submit_button = document.querySelector(".subit")
+                submit_button.disabled = true
+                
+                //console.log(document.querySelector(".chceckbox").checked)
+
+
+// liczenie godzin od ostatniego wysłłania
+                let czas = Date.now();
+                let czas_wyslania = localStorage["Time"]
+
+                let roznica = (czas - czas_wyslania) / (1000 * 60 * 60)  
+               
+
+                if (localStorage["Time"] != null || roznica < 1 ) {
+                    submit_button.classList.add("fail")
+                    return
+                }
+                if (!document.querySelector(".chceckbox").checked) {
+                    submit_button.classList.add("fail")
+                    return
+                }
+                emailjs.sendForm('service_t9tey0g', 'template_um869ex', this)
+                    .then(() => {
+                        //console.log('SUCCESS!');
+                        localStorage["Time"] = Date.now()
+                        submit_button.classList.add("sukces")
+                    }, (error) => {
+                        //console.log('FAILED...', error);
+                        submit_button.classList.add("fail")
+                    });
+
+            });
+        }
+
+    </script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<style>
+  .main{
+    width: 400px;
+    background: rgb(0,0,0);
+background: linear-gradient(50deg, rgba(0,0,0,1) 24%, rgba(12,74,0,1) 100%);
+  }
+</style>
+
+</head>
+<body>
+
+ 
+<nav class=" navbar navbar-expand-sm bg-dark ">
+    <div class="container-fluid">
+      <a class="navbar-brand text-light" href="index.html">        <img style="width: 50px;" src="android-chrome-192x192.png" alt="">
+      </a>
+      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active text-light" href="index.html" aria-current="page" >Home</a>
+          </li>
+          <li class="nav-item text-light">
+          <a class="nav-link text-light"  href="omnie.html">O mnie</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="l7.html">Kontakt</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    <div class="container d-flex justify-content-center">
+
+        <div  class="main  bg-success mt-5 p-5 rounded-5 text-light">
+            <h1>Napisz do mnie wiadomość</h1>
+            <form id="contact-form">
+
+                <label>Name</label>
+                <br />
+                <input required class="name form-control" type="text" name="from_name" placeholder="Name">
+                <br />
+
+                <label>Email</label>
+                <br />
+                <input required class="email form-control" type="email" name="email" placeholder="user@gmail.com">
+                <br />
+
+                <label>Message</label>
+                <br />
+                <textarea required chceckbox class="form-control message" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+
+                
+                <br />
+                <div class="w-100 d-flex justify-content-end"> 
+
+                <input required class="chceckbox form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="ps-3">Wyrażam zgode na przetwarzanie moich danych osobowych w celu odpowiedzi na zadane pytanie</label>
+                </div>
+                <br />
+              <div class="w-100 d-flex justify-content-end"> 
+                <input  class="subit btn btn-success mt-3 px-4" required type="submit" value="Send">
+              </div> 
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
